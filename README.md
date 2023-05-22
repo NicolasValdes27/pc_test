@@ -4,12 +4,12 @@
 
 Clona este repositorio: `git clone https://github.com/NicolasValdes27/pc_test.git`
 Instala las dependencias: `npm i`
-Para correr el proyecto: `npm run dev`
+Para ejecutar el proyecto: `npm run dev`
 Generar carpeta dist: `npm run build`
 
 ## Caso ENV
 
-Por diversos motivos no pude configurar un ambiente para que el backend y la base de datos vivan en la nube, dejare el env que yo utilice para correrlo en local.
+Por diversos motivos, no pude configurar un ambiente en la nube para el backend y la base de datos. A continuación, se muestra el archivo .env que utilicé para ejecutarlo localmente.
 
 DB_HOST: "localhost"
 DB_USERNAME: "postgres"
@@ -17,15 +17,15 @@ DB_PASSWORD: "pgpass"
 DB_NAME: "pc_test"
 PORT: 3000
 
-Se puede crear el archivo .env o directamente poner los datos en el archivo `db.ts`, se ocupa una db por defecto en postgres, pero el DB_PASSWORD y DB_NAME va dependiendo del usuario.
+Puedes crear el archivo .env y establecer los valores mencionados anteriormente, o puedes agregar directamente los datos en el archivo `db.ts`. Se utiliza una base de datos por defecto en PostgreSQL, pero el valor de DB_PASSWORD y DB_NAME puede variar según el usuario.
 
-## Stress testing
+## Pruebas de estrés (Stress testing)
 
-Utilice la libreria de JAG TESTER, para correr el stress testing se debe ingresar `npx jagtester` en la consola y luego ingresar las apis.
+Utilicé la biblioteca JAG TESTER para realizar las pruebas de estrés. Para ejecutar las pruebas, ingresa `npx jagtester` en la consola y luego proporciona las API correspondientes.
 
 ## API's
 
-Para crear un estudiante (POST): `http://localhost:{PORT}/students` y su estructura es:
+Para crear un estudiante (POST): `http://localhost:{PORT}/students`. La estructura del cuerpo es la siguiente:
 {
     "firstname": "string",
     "lastname": "string",
@@ -34,15 +34,15 @@ Para crear un estudiante (POST): `http://localhost:{PORT}/students` y su estruct
 
 Para obtener todos los estudiantes (GET): `http://localhost:{PORT}/students`
 
-Para obtener un estudiante (GET): `http://localhost:{PORT}/students/:id`
+Para obtener un estudiante específico (GET): `http://localhost:{PORT}/students/:id`
 
-Para actualizar un estudiante (PUT): `http://localhost:{PORT}/students/:id` y el body se llevar los campos que se quieran actualizar.
+Para actualizar un estudiante (PUT): `http://localhost:{PORT}/students/:id`. El cuerpo de la solicitud debe contener los campos que se desean actualizar.
 
 Para eliminar un estudiante (DELETE): `http://localhost:{PORT}/students/:id`
 
-Esto yo lo probaba con la extension Thunder Client de VSCODE
+Yo probaba estas API con la extensión Thunder Client de Visual Studio Code.
 
-También dejo los comandos por el CMD de Widnows
+También dejo los siguientes comandos para utilizar en la terminal de Windows (CMD):
 
 `curl -X POST http://localhost:{PORT}/students -H "Content-Type: application/json" -d "{\"firstname\": \"Nicolas\",\"lastname\": \"Valdes\",\"studentProgram\": \"Carrera 23\"}"`
 
